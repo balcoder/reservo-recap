@@ -5,11 +5,10 @@
   box-shadow: var(--shadow-dark);
 
   @media only screen and(max-width: $bp-largest) {
-    margin: 0 0;
+    margin: 0;
     max-width: 100%;
     width: 100%;
   }
-
   //min-height: 50rem;
 }
 
@@ -26,23 +25,34 @@
   form {
     display: flex;
   }
+
+  @media only screen and(max-width: $bp-smallest) {
+    flex-wrap: wrap;
+    height: 12rem;
+    align-content: space-around;
+  }
 }
 
 .content {
     display: flex;
 
-    @media only screen and (max-width: $bp-medium) {
-      flex-direction: row;
+    @media only screen and(max-width: $bp-medium) {
+      flex-direction: column;
     }
+
 }
 
 .sidebar {
   background-color: var(--color-grey-dark-1);
-  flex: 0 0 18%;
   min-height: 100vh;
 
-  @media only screen and (max-width: $bp-medium) {
-    flex: 1;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  flex: 0 0 18%;
+
+  @media only screen and(max-width: $bp-medium) {
+      min-height: 100%;
   }
 }
 
@@ -58,7 +68,18 @@
   border: var(--line);
 
   @media only screen and (max-width: $bp-medium) {
+    padding: 3rem;
+
+  }
+
+  @media only screen and (max-width: $bp-small) {
     flex-direction: column;
+
+  }
+
+  @media only screen and (max-width: $bp-smallest) {
+    padding: 1rem;
+
   }
 }
 
@@ -69,12 +90,18 @@
   box-shadow: var(--shadow-light);
 
   flex: 0 0 60%;
+
   @media only screen and (max-width: $bp-medium) {
-    margin-right: 0;
-    margin-bottom: 3.5rem;
+    padding: 2rem;
+    margin-right: 3rem;
   }
 
+  @media only screen and (max-width: $bp-small) {
 
+    margin-right: 0;
+    margin-bottom: 3rem;
+
+  }
 }
 
 .user-reviews {

@@ -9,7 +9,7 @@
 // Search
 .search {
   flex: 0 0 40%;
-  diaplay: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
 
@@ -57,6 +57,12 @@
     height: 1.8rem;
     width: 1.8rem;
     fill: var(--color-grey-dark-3);
+  }
+
+  @media only screen and(max-width: $bp-smallest) {
+    order: 1;
+    flex: 0 0 100%;
+    background-color: var(  --color-grey-light-2);
   }
 }
 
@@ -126,14 +132,6 @@
 //////////////////////
 // Side Navigation
 .sidebar {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  @media only screen and (max-width: $bp-medium) {
-    flex-direction: row;
-
-  }
 
 }
 .side-nav {
@@ -143,8 +141,19 @@
 
   @media only screen and (max-width: $bp-medium) {
     display: flex;
-    flex-direction: column;
+    margin: 0;
+    justify-content: space-between;
 
+  }
+  @media only screen and (max-width: $bp-smallest) {
+    font-size: 1.5rem;
+  }
+
+  &__item {
+    @media only screen and (max-width: $bp-medium) {
+      flex: 1;
+
+    }
   }
 
 
@@ -152,6 +161,10 @@
     position: relative;
     &:not(:last-child) {
       margin-bottom: .5rem;
+      @media only screen and (max-width: $bp-medium) {
+        margin: 0;
+
+      }
     }
   }
 
@@ -191,6 +204,17 @@
     align-items: center;
     z-index: 10;
 
+    @media only screen and (max-width: $bp-medium) {
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    @media only screen and(max-width: $bp-medium) {
+      flex-direction: column;
+      padding-top: 1rem;
+    }
+
+
   }
 
   &__icon {
@@ -198,6 +222,12 @@
     height: 1.75rem;
     fill: currentColor;
     margin-right: 2rem;
+    @media only screen and(max-width: $bp-medium) {
+      margin-right: 0;
+      margin-bottom: .5rem;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
   }
 
 
@@ -210,6 +240,10 @@
   color: var(--color-grey-light-4);
   text-align: center;
   padding: 2rem;
+
+  @media only screen and(max-width: $bp-medium) {
+    display: none;
+  }
 }
 
 /////////////////////
@@ -238,12 +272,19 @@
   background-color: var(--line);
 
 
+
+
   &__heading {
     font-size: 2.25rem;
     font-weight: 300;
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 1.5rem 3rem;
+
+    @media only screen and(max-width: $bp-medium) {
+      font-size: 1.8rem;
+      padding: 1.25rem 2rem;
+    }
 
   }
   &__stars {
@@ -280,14 +321,25 @@
     align-self: stretch;
     padding: 0 2.25rem;
 
+    @media only screen and(max-width: $bp-medium) {
+      padding: 0 1.5rem;
+    }
+
     &-average {
       font-size: 2.5rem;
       font-weight: 300;
+
+      @media only screen and(max-width: $bp-medium) {
+      font-size: 1.8rem;
+      }
     }
     &-count {
       margin-top: -.5rem;
-
       font-size: 1rem;
+
+      @media only screen and(max-width: $bp-medium) {
+      font-size: .5rem;
+      }
     }
   }
 }
@@ -368,15 +420,19 @@
     margin-right: .7rem;
 
     // Older browsers
-    // background-image: url(../img/chevron-thin-right.svg);
-    // background-size: cover;
+     background-image: url(../img/chevron-thin-right.svg);
+     background-size: cover;
 
     // Newer browser -- Masks
-    background-color: var(--color-primary);
-    -webkit-mask-image: url(../img/chevron-thin-right.svg);
-    -webkit-mask-size: cover;
-    mask-image: url(../img/chevron-thin-right.svg);
-    mask-size: cover;
+    @supports (-webkit-mask-image: url()) or (webkit-mask-image: url()) {
+      background-color: var(--color-primary);
+      -webkit-mask-image: url(../img/chevron-thin-right.svg);
+      -webkit-mask-size: cover;
+      mask-image: url(../img/chevron-thin-right.svg);
+      mask-size: cover;
+      background-image: none;
+    }
+
   }
 }
 ////////////////////
@@ -401,7 +457,7 @@
 
   }
   &__img:not(:first-of-type) {
-    margin-left: -1rem;
+    margin-left: -1.5rem;
   }
 
 }
@@ -415,6 +471,12 @@
   margin-bottom: 3.5rem;
   position: relative;
   overflow: hidden;
+
+  @media only screen and(max-width: $bp-medium) {
+    padding: 2rem;
+    margin-bottom: 3rem;
+  }
+
 
   &::before {
     content: "\201C";
@@ -486,6 +548,12 @@
     text-transform: uppercase;
     font-weight: 300;
     margin-bottom: 2.5rem;
+    @media only screen and(max-width: $bp-smallest) {
+      font-size: 1.5rem;
+      padding: 1.5rem;
+      margin-bottom: 1.2rem;
+      text-align: center;
+    }
   }
 }
 
